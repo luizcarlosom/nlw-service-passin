@@ -22,17 +22,17 @@ jobs:
     - name: Build docker image
       run: docker build -t luizcarlosom/nlw-service-passin:${{ steps.generate_sha.outputs.sha }} .
 
-    # - name: Log into the container registry
-    #   uses: docker/login-action@v3
-    #   with:
-    #     username: ${{ secrets.DOCKERHUB_USERNAME }}
-    #     password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Log into the container registry
+      uses: docker/login-action@v3
+      with:
+        username: ${{ secrets.DOCKERHUB_USER }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-    # - name: Push image
-    #   run: |
-    #     docker push danielrodriguess/nlw.service.passin:${{ steps.generate_sha.outputs.sha }}
-    #     docker tag danielrodriguess/nlw.service.passin:${{ steps.generate_sha.outputs.sha }} danielrodriguess/nlw.service.passin:latest
-    #     docker push danielrodriguess/nlw.service.passin:latest
+    - name: Push image
+      run: |
+        docker push luizcarlosom/nlw-service-passin:${{ steps.generate_sha.outputs.sha }}
+        docker tag luizcarlosom/nlw-service-passin:${{ steps.generate_sha.outputs.sha }} luizcarlosom/nlw-service-passin:latest
+        docker push luizcarlosom/nlw-service-passin:latest
 
     # - name: Update image tag
     #   uses: fjogeleit/yaml-update-action@main
