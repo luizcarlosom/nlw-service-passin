@@ -9,7 +9,7 @@ metadata:
 
 stringData:
   type: git
-  url: git@github.com:rocketseat-education/nlw-unite-devops.git
+  url: git@github.com:luizcarlosom/nlw-service-passin.git
   sshPrivateKey: |
     -----BEGIN OPENSSH PRIVATE KEY-----
     -----END OPENSSH PRIVATE KEY-----
